@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+        <title>Instructions</title>
+        <style>
+            img {
+            width: 235px;
+            height: 200px;
+            position: relative;
+            animation: move 4s infinite;
+            animation-timing-function: linear;
+            top: 0px;
+            transform: rotate(90deg);
+        }
+        
+        @keyframes move {
+            0% {
+                left: 1%;
+            }
+            
+            25% {
+                left: 50%;
+            }
+            
+            50% {
+                left: 85%;
+                transform: rotate(270deg);
+            }
+            
+            75% {
+                left: 50%;
+            }
+            
+            100% {
+                left: 1%;
+                transform: rotate(90deg);
+            }
+        }   
+        h1 {
+                color: rgba(243, 227, 0, 0.89);
+                font-size: 0.87cm;
+                font-family: 'Lobster', cursive;
+            }
+            p {
+                color: rgba(243, 243, 243, 0.89);
+                font-size: 0.87cm;
+                font-family: 'Lobster', cursive;
+            }
+            
+            body {
+                background-image: url('Images/back2.png');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+            }
+            
+            #btn2 {
+                font-family: 'Abril Fatface', cursive;
+                background-color: transparent;
+                cursor: pointer;
+                color: rgb(207, 120, 12);
+                font-size: 50px;
+                display: block;
+                margin: auto;
+                border: 5px solid rgba(13, 0, 27, 0);
+            }
+            
+            #btn2:hover {
+                color: greenyellow;
+                border: 8px solid black;
+            }
+            
+            .green {
+                color: greenyellow;
+            }
+        </style>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    
+    
+    </head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <center><button type="button" id="btn2" style="font-size: 1cm;" onclick="document.location='home.html'">RETURN TO HOME</button></center>
+   <br><br>
+   <br>
+   <img src="Images/RocketREM.png" alt="">
+   <br>
+
+   <center>
+    <p> An impostor malfunctioned the rocket and has encoded the essential files in one of his own version. Help him to decode the <span style="color:red;font-weight: bold;">malfunction</span> so that the rocket can be landed safely to its destination.
+        Remember we have only 5 pilots and <span style="color:red;font-weight: bold;">malfunction</span> has hanged the system already. Any further error will trigger the damage to the rocket costing the <b>precious life</b> of the pilots. Malfunction
+        has much to do with your keyboard, press the correct key indicated by the<strong class="green">GREEN</strong> asteroid. Let your <b>protection</b> score flourish.</p>
+</center>
+<center>
+    <p>Typing the <em class="green">Correct</em> <strong>ALPHABET</strong> will give you +1 point and <br>Typing <em>Wrong</em> <strong>ALPHABET</strong> will cost 1 life. <br>You have total 5 life.</p>
+</center>
+
+</body>
+</html>

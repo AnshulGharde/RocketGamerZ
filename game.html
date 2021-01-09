@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GAME</title>
+	<style>
+		body {
+			background-image: url('Images/back1.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: 100% 100%;
+		}
+	</style>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="insideContainer">
+			<button class="click"></button>
+			<button class="click"></button>
+			<button class="click"></button>
+			<button class="click"></button>
+			<button class="click"></button>
+			
+		</div>
+		<span id="scoreBoard">0</span>
+	</div>
+	<center><div><button class="StartIt" id="btn1" style="font-size: 0.5cm" onclick="setTimeout(Choose(), 10)">Start Game</button></div></center>
+
+	<div class="game">
+
+		<div class="meteor M1">
+			<div class="rock"></div>
+		</div>
+
+		<div class="meteor M2">
+			<div class="rock"></div>
+		</div>
+
+		<div class="meteor M3">
+			<div class="rock"></div>
+		</div>
+
+		<div class="meteor M4">
+			<div class="rock"></div>
+		</div>
+
+		<div class="meteor M5">
+			<div class="rock"></div>
+		</div>
+
+	</div>
+
+	<div class="letterBox">
+		<div class="lett L1"><span class="sc S1"></span></div>
+		<div class="lett L2"><span class="sc S2"></span></div>
+		<div class="lett L3"><span class="sc S3"></span></div>
+		<div class="lett L4"><span class="sc S4"></span></div>
+		<div class="lett L5"><span class="sc S5"></span></div>
+	</div>
+
+	<center><div><button class="StartIt" id="btn2" style.visibility = "visible" style="font-size: 0.5cm" onclick="document.location='home.html'">Return To HomePage</button></div></center>
+
+	<div class="base">
+
+		<div class="loc L1">
+			<div class="pos"></div>
+		</div>
+
+		<div class="loc L2">
+			<div class="pos"></div>
+		</div>
+
+		<div class="loc L3">
+			<div class="pos"></div>
+		</div>
+
+		<div class="loc L4">
+			<div class="pos"></div>
+		</div>
+
+		<div class="loc L5">
+			<div class="pos"></div>
+		</div>
+
+	</div>
+	
+	<script>
+
+		
+		const meteor = document.querySelectorAll('.meteor')
+		const rock = document.querySelectorAll('.rock')
+
+		const loc = document.querySelectorAll('.loc')
+		const pos = document.querySelectorAll('.pos')
+
+		const bru = document.querySelectorAll('.lett')
+		const alp = document.querySelectorAll('.sc')
+
+		const btn = document.querySelectorAll('.StartIt')
+
+
+		var rightInd
+		var arrAlp = [alp[0], alp[1], alp[2], alp[3], alp[4]]
+		let lastMeteor = meteor[2];
+		let LastLett;
+		let place = loc[2];
+		loc[2].classList.add('rocket');
+		let alpInd;
+		let scoreLettter;
+
+		const life = document.getElementsByClassName('click');
+		let score = 0;
+		let i = life.length - 1;
+
+		var x = 1;
+
+		function randomNumber(min, max) {
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+
+		function randomLett() {
+
+			alpInd = randomNumber(65, 91);
+			return alpInd;
+		}
+
+		function randomMeteor(meteor) {
+			let idx = randomNumber(0, meteor.length)
+			let Meteor = meteor[idx];
+
+			LastLett = arrAlp[idx].textContent;
+			rightInd = idx;
+			for (var i = 0; i < arrAlp.length; i++) {
+				var b = randomLett();
+
+				if (String.fromCharCode(b) === LastLett) {
+					if (b == 90) {
+						arrAlp[i].textContent = String.fromCharCode(b - 1);
+						
+					}
+					else {
+						arrAlp[i].textContent = String.fromCharCode(b + 1);
+					}
+				}
+				else {
+					arrAlp[i].textContent = String.fromCharCode(b);
+				}
+				scoreLettter=arrAlp[i].textContent;
+
+			}
+			if (lastMeteor === Meteor) {
+				if (idx == 4) {
+					let Meteor = meteor[idx - 1];
+				}
+				else {
+					let Meteor = meteor[idx + 1];
+				}
+
+			}
+			lastMeteor = Meteor;
+			return Meteor;
+
+		}
+
+
+
+
+		function Choose() {
+			btn[0].style.visibility = "hidden";
+			btn[1].style.visibility = "hidden";
+
+			for (var i = 0; i < meteor.length; i++) {
+				meteor[i].classList.add('wrong');
+			}
+
+			const Meteor = randomMeteor(meteor);
+			Meteor.classList.add('right');
+
+
+
+			setTimeout(function () {
+				for (var i = 0; i < meteor.length; i++) {
+					if (meteor[i] != Meteor) {
+						meteor[i].classList.remove('wrong');
+					}
+					else {
+						meteor[i].classList.remove('right');
+						meteor[i].classList.remove('wrong');
+					}
+
+				}
+			}, 1000)
+			
+
+		}
+
+			document.onkeydown = function (e) {
+				
+
+				if (String.fromCharCode(e.keyCode) === arrAlp[rightInd].textContent) {
+					//console.log("true");
+					place.classList.remove('rocket');
+
+					loc[rightInd].classList.add('rocket');
+					place = loc[rightInd];
+					score += 10;
+					scoreBoard.textContent = score;
+
+					setTimeout( function() {Choose();}, 500)
+				}
+				else{
+					if (i == 0) {
+					//Add something such that game over appears at the center of the screen
+					life[i].classList.add('hidden');
+					scoreBoard.textContent = `GAME OVER!  Congratulations!!  Your score is ${score}.`;
+
+					btn[1].style.visibility = "visible";
+
+				} 
+				
+					else {
+
+
+					life[0].classList.add('animate');
+					life[1].classList.add('animate');
+					life[2].classList.add('animate');
+					life[3].classList.add('animate');
+					life[i].classList.add('hidden');
+
+					i--;
+
+					setTimeout( function() {Choose();}, 500)
+				}
+
+
+				}
+
+
+				
+			}
+			
+	
+	</script>
+
+</body>
+
+</html>

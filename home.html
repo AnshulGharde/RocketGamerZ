@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+    <title>Game Made by RocketGamerZ</title>
+	<style>
+		p{
+			color: white;
+			font-size: 2cm;
+		}
+		img {
+            width: 235px;
+            height: 200px;
+            position: relative;
+            animation: move 4s infinite;
+            animation-timing-function: linear;
+            top: -50px;
+            transform: rotate(90deg);
+        }
+        
+        @keyframes move {
+            0% {
+                left: 1%;
+            }
+            
+            25% {
+                left: 50%;
+            }
+            
+            50% {
+                left: 85%;
+                transform: rotate(270deg);
+            }
+            
+            75% {
+                left: 50%;
+            }
+            
+            100% {
+                left: 1%;
+                transform: rotate(90deg);
+            }
+        }
+        
+        p {
+            color: rgb(233, 229, 27);
+            font-family: 'Lobster', cursive;
+            font-size: 2cm;
+            animation: shake 2s ease-in-out 5s infinite;
+			top: 100px;
+        }
+        
+        @keyframes shake {
+            0% {
+                font-weight: bold;
+                color: blue
+            }
+            50% {
+                font-size: 2.1cm;
+                color: aquamarine
+            }
+            100% {
+                color: darkblue;
+                font-weight: 900;
+            }
+        }
+        
+        .btn {
+            color: bisque;
+            display: block;
+            font-family: 'Abril Fatface', cursive;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 30px;
+            border: 5px solid rgba(13, 0, 27, 0);
+            margin: auto;
+        }
+        
+        #btn1:hover {
+            color: rgb(241, 209, 24);
+            border: 8px solid rgb(19, 19, 14);
+            
+        }
+        
+        #btn2:hover {
+            color: orangered;
+            border: 8px solid black;
+            
+        }
+        
+
+
+		body {
+			background-image: url('Images/back1.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: 100% 100%;
+		}
+	</style>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</head>
+ 
+<body>
+	
+	<center><p>Welcome to RocketFury: Hunt for Keys</p></center>
+	<br><br><img src="Images/RocketREM.png" alt=""><br><br>
+	<center><button type="button" id="btn1" style="font-size: 1.5cm" onclick="document.location='game.html'">Play Game</button></center>
+	<br>
+	<br>
+	<center><button type="button" id="btn2" style="font-size: 1cm;" onclick="document.location='inst.html'">Instructions</button></center>
+	
+</body>
+
+</html>
