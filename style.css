@@ -1,0 +1,167 @@
+
+.meteor {
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+.game {
+    width: 1000px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+
+  }
+
+.base {
+    width: 1000px;
+    height: 250px;
+    display: flex;
+    
+    margin: 0 auto;
+  } 
+
+.loc {
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  .meteor.wrong .rock {
+    display: block;
+    background: url(Images/MeteorWrong-removebg-preview.png) no-repeat;
+    background-size: contain;
+    content: '';
+    visibility: visible;
+    width: 200px;
+    height: 250px;
+    position: relative;
+    z-index: 2;
+    bottom: -30px;
+  }
+
+  .meteor.right .rock{
+    display: block;
+    background: url(Images/MeteorRight-removebg-preview.png) no-repeat;
+    background-size: contain;
+    content: '';
+    visibility: visible;
+    width: 200px;
+    height: 250px;
+    position: relative;
+    z-index: 2;
+    bottom: -30px;
+  }
+  
+  .rocket {
+    display: block;
+    background: url(Images/RocketREM.png) no-repeat;
+    background-size: contain;
+    content: '';
+    visibility: visible;
+    width: 200px;
+    height: 250px;
+    position: relative;
+    z-index: 10;
+    bottom: -20px;
+
+  }
+  .h1{
+    align: center;
+    z-index: -20;
+
+  }
+
+.letterBox{
+  width: 1000px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+}
+.lett{
+  color: aliceblue;
+  width: 200px;
+    height: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    text-align: center;
+}
+.sc{
+  padding-left: 78px;
+  padding-top: 20px;
+  font-size: 50px;
+}
+
+.container {
+  text-align: center;
+}
+
+.click {
+  background-color: red;
+  width: 20px;
+  height: 20px;
+}
+
+.animate {
+  animation: beep 2s ease-in-out infinite;
+}
+
+@keyframes beep {
+  0% {
+      width: 10px;
+      height: 10px;
+  }
+  50% {
+      width: 20px;
+      height: 20px;
+  }
+  75% {
+      width: 15px;
+      height: 15px;
+  }
+  100% {
+      width: 10px;
+      height: 10px;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+span {
+  font-size: 35px;
+  color: whitesmoke;
+  font-weight: bold;
+}
+.startit{
+  align-items: center;
+  visibility: hidden;
+}
+.btn {
+  color: bisque;
+  display: block;
+  font-family: 'Abril Fatface', cursive;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 30px;
+  border: 5px solid rgba(13, 0, 27, 0);
+  margin: auto;
+}
+
+#btn1:hover {
+  color: rgb(33, 127, 214);
+  border: 8px solid black;
+}
+#btn2:hover {
+  color: orangered;
+  border: 8px solid black;
+  
+}
